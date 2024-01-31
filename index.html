@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .box-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .box {
+      width: 60px;
+      height: 100vh;
+      background: linear-gradient(to bottom, #318ee5, #1a67d3);
+      transition: width 0.5s ease;
+    }
+
+    .flex-box {
+      padding: 20px;
+      flex: 1;
+      height: calc(100vh - 40px);
+      background-color: #d1e1f3;
+    }
+
+    button {
+      margin-left: -15px;
+      margin-right: -15px;
+      z-index: 100;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      border: none;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .cards{
+        display: flex;
+        gap: 20px;
+    }
+
+    .card{
+        height: 60px;
+        flex: 1;
+        background: #fff;
+    }
+    .row1{
+        display: grid;
+        column-gap: 20px;
+        grid-template-columns: 4fr 6fr;
+    }
+    .row2{
+        margin-top: 20px;
+        display: grid;
+        column-gap: 20px;
+        grid-template-columns: 7fr 3fr;
+    }
+    .chart{
+        height: 275px;
+        background: #fff;
+    }
+  </style>
+  <title>Toggle Width</title>
+</head>
+<body>
+
+<div class="container">
+  <div class="box-container">
+    <div class="box" id="myBox"></div>
+    <button onclick="toggleWidth()">></button>
+  </div>
+  <div class="flex-box">
+    <div class="cards">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+    </div>
+    <div class="charts" style="margin-top: 20px;">
+        <div class="row1">
+            <div class="chart"></div>
+            <div class="chart"></div>
+        </div>
+        <div class="row2">
+            <div class="chart"></div>
+            <div class="chart"></div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let isExpanded = false;
+  const box = document.getElementById('myBox');
+  const button = document.querySelector('button');
+
+  function toggleWidth() {
+    isExpanded = !isExpanded;
+    box.style.width = isExpanded ? '280px' : '60px';
+    button.textContent = isExpanded ? '<' : '>';
+  }
+</script>
+
+</body>
+</html>
